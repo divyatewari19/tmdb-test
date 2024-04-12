@@ -1,5 +1,9 @@
 const path = require('path');
-const HTMLWebpackPlugin = require('html-webpack-plugin')
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+ const {DefinePlugin} = require('webpack');
+const dotenv = require('dotenv')
+
+dotenv.config();
 
 module.exports = {
     entry: './src/index.tsx',
@@ -12,11 +16,14 @@ module.exports = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './src/index.html'
-        })
+        }),
+        new DefinePlugin({
+            'process.env': JSON.stringify(process.env)
+         })
     ],
     devServer: {
         historyApiFallback: true
-      },
+    },
 
     resolve: {
         extensions: ['.tsx', '.ts', '.js'],

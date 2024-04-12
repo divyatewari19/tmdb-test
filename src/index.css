@@ -3,10 +3,15 @@
 @tailwind utilities;
 
 main {
-    min-height: calc(100vh - 162px);
+    min-height: calc(100vh - 170px);
 }
 
-main div {
-    padding: 20px;
-    text-align: center;
+body {
+    @apply bg-secondaryColor  h-full overflow-x-hidden;
+  }
+  
+:root {
+    --header-margin-left: 100px;
+    --primary-color: rgb(15 23 42);
+    --secondary-color: rgb(8 47 73);
 }
