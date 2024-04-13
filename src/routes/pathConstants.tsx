@@ -1,6 +1,8 @@
 const PathConstants = {
   HOME: "/",
-  PRODUCTS: "/products",
+  DETAILS: "/details/:mediatype/:id",
+  PERSON: "/person/:id",
+  CAST: "/:id/cast",
   ABOUT: "about",
 };
 

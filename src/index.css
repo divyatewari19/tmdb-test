@@ -7,7 +7,7 @@ main {
 }
 
 body {
-    @apply bg-secondaryColor  h-full overflow-x-hidden;
+    @apply bg-secondaryColor  h-full overflow-x-hidden  text-xl;
   }
   
 :root {

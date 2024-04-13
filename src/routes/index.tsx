@@ -1,8 +1,9 @@
 import React from "react";
 import PathConstants from "./pathConstants";
 import Home from "../pages/Home";
-import Products from "../pages/Products";
-import About from "../pages/About";
+import Details from "../pages/Details";
+import Person from "../pages/Person";
+import Cast from "../pages/Cast";
 
 // const Home = React.lazy(() => import("../pages/Home.tsx"));
 // const About = React.lazy(() => import("../pages/About"));
@@ -10,8 +11,10 @@ import About from "../pages/About";
 
 const routes = [
   { path: PathConstants.HOME, element: <Home /> },
-  { path: PathConstants.PRODUCTS, element: <Products /> },
-  { path: PathConstants.ABOUT, element: <About /> },
+  { path: PathConstants.DETAILS, element: <Details /> },
+  { path: PathConstants.PERSON, element: <Person /> },
+  { path: PathConstants.CAST, element: <Cast /> },
+  // { path: PathConstants.ABOUT, element: <About /> },
 ];
 
 export default routes;

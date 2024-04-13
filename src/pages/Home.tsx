@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useHttpClient from "../hooks/useHttpClient";
 import { HTTP_METHOD, URL } from "../utilities/constants";
 import MovieList from "../components/MovieList";
-import { IMoviesResponse } from "../types";
+import { IMovies } from "../types";
 
 type Props = {};
 
@@ -11,13 +11,13 @@ const Home = (props: Props) => {
     data: movies,
     error,
     isLoading,
-  }: { data: IMoviesResponse; error: any; isLoading: boolean } = useHttpClient(
+  }: { data: IMovies; error: any; isLoading: boolean } = useHttpClient(
     URL.getTrendingMovies,
     HTTP_METHOD.GET
   );
 
   return (
-    <div className="pb-40 mx-[--header-margin-left]">
+    <div>
       <MovieList title="Trending Movies" data={movies && movies.results} />
     </div>
   );

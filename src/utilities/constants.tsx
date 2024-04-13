@@ -7,7 +7,13 @@ export enum HTTP_METHOD {
 
 export const URL = {
   root: "https://api.themoviedb.org/3",
-  imageThumbnailRoot: "https://image.tmdb.org/t/p/w440_and_h660_face",
+  imageThumbnailRoot: "https://image.tmdb.org/t/p/",
   getTrendingMovies:
     "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
+  getMovieDetailsById: "https://api.themoviedb.org/3/movie/",
 };
+
+export enum ItemMediaType {
+  "TVShow" = "tvShow",
+  "Movie" = "movie",
+}
