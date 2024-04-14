@@ -2,6 +2,7 @@ import React from "react";
 import { ICast } from "../types";
 import { useNavigate } from "react-router-dom";
 import { getImageURL } from "../utilities/common";
+import { KeyCodes } from "../utilities/constants";
 
 type Props = {
   data: ICast;
@@ -9,12 +10,22 @@ type Props = {
 
 const CastCard = ({ data }: Props) => {
   const navigate = useNavigate();
+  const navigateToPersonsPage = () => {
+    navigate(`/person/${data.id}`, { state: { name: data.name } });
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.code === KeyCodes.enter) {
+      navigateToPersonsPage();
+    }
+  };
+
   return (
     <div
-      className="p-4 bg-zinc-200 min-w-[210px] cursor-pointer rounded-lg"
-      onClick={() =>
-        navigate(`/person/${data.id}`, { state: { name: data.name } })
-      }
+      className="p-4 bg-zinc-200 hover:bg-slate-300 min-w-[210px] cursor-pointer rounded-lg"
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
+      onClick={navigateToPersonsPage}
     >
       {data.profile_path ? (
         <img
@@ -24,6 +35,7 @@ const CastCard = ({ data }: Props) => {
               object-contain
               rounded-lg
               w-full
+              min-h-[300px]
               cursor-pointer
           "
         />

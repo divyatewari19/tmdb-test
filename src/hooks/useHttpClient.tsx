@@ -3,7 +3,7 @@ import React, { FC, useEffect, useState } from "react";
 const useHttpClient = (url: string, method = "get") => {
   const [data, setData] = useState<any>();
   // <T|null>
-  const [error, setError] = useState(false);
+  const [error, setError] = useState<any>(false);
   const [isLoading, setIsLoading] = useState(false);
   const options = {
     method: method,

@@ -1,3 +1,4 @@
+
 export interface IMovie {
   id: string;
   title: string;
@@ -63,4 +64,14 @@ export interface ICast {
 export interface ICredits {
   id: number;
   cast: ICast[];
+}
+
+// export interface IKeyboardEvent {
+//   enter:
+// }
+
+declare global {
+  interface Window {
+    lString: Record<string, string>;
+  }
 }

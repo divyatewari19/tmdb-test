@@ -37,7 +37,6 @@ const Details = (props: Props) => {
     HTTP_METHOD.GET
   );
 
-  //   let runtimeDuration = getDurationFromMinutes(data.runtime);
   return (
     data && (
       <>
@@ -115,7 +114,9 @@ const Details = (props: Props) => {
             </section>
           </div>
         </div>
-        {creditsData && <CastList data={creditsData.cast} />}
+        {creditsData && (
+          <CastList isLoading={creditsIsLoading} data={creditsData.cast} />
+        )}
       </>
     )
   );

@@ -13,7 +13,12 @@ export const URL = {
   getMovieDetailsById: "https://api.themoviedb.org/3/movie/",
 };
 
-export enum ItemMediaType {
+export enum ItemType {
   "TVShow" = "tvShow",
   "Movie" = "movie",
+  "Cast" = "cast",
+}
+
+export enum KeyCodes {
+  "enter" = "Enter",
 }

@@ -1,7 +1,7 @@
 const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
  const {DefinePlugin} = require('webpack');
-const dotenv = require('dotenv')
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -19,7 +19,7 @@ module.exports = {
         }),
         new DefinePlugin({
             'process.env': JSON.stringify(process.env)
-         })
+        }),
     ],
     devServer: {
         historyApiFallback: true
@@ -31,6 +31,10 @@ module.exports = {
 
     module: {
         rules: [
+            {
+                test: /\.(png|jpe?g|gif|svg)$/i,
+                type: "asset/resource"
+            },
             {
                 test: /\.css$/i,
                 // include: path.resolve(__dirname, 'src'),
@@ -46,6 +50,7 @@ module.exports = {
                     }
                 }
             },
+            { test: /\\.(png|jp(e*)g|svg|gif)$/, use: ['file-loader'], }
             
         ]
     }

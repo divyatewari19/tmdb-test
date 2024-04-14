@@ -1,0 +1,9 @@
+{
+    "str_locale_id": "en-US",
+    "str_app_title": "TMDB API Demo",
+    "str_trending_movies": "Trending Movies",
+    "str_trending_tvshows": "Trending TV Shows",
+    "str_not_found_title": "404 - Page Not Found",
+    "str_not_found_desc": "This page does not exist",
+    "str_cast_title": "Cast & Crew"
+}

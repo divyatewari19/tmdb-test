@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { IMovie } from "../types";
 import useHttpClient from "../hooks/useHttpClient";
-import { HTTP_METHOD, URL } from "../utilities/constants";
+import { HTTP_METHOD, KeyCodes, URL } from "../utilities/constants";
 import { useNavigate } from "react-router-dom";
 import { getImageURL, getYearFromDate } from "../utilities/common";
 
@@ -10,16 +10,29 @@ type Props = {
 };
 
 const ShowCard = ({ data }: { data: IMovie }) => {
+  const navigateToDetailsPage = () => {
+    navigate(`/details/${data.media_type}/${data.id}`);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLDivElement>) => {
+    if (e.code === KeyCodes.enter) {
+      navigateToDetailsPage();
+    }
+  };
+
   const navigate = useNavigate();
   return (
     <div
-      className="p-4 bg-primaryColor min-w-[260px] cursor-pointer rounded-lg"
-      onClick={() => navigate(`/details/${data.media_type}/${data.id}`)}
+      className="p-4 bg-primaryColor min-w-[260px] hover:bg-sky-800 focus:ring-3 focus:ring-blue-400 cursor-pointer rounded-lg"
+      onClick={navigateToDetailsPage}
+      tabIndex={0}
+      onKeyDown={handleKeyDown}
     >
       <img
         src={getImageURL(data.poster_path, "w440_and_h660_face")}
         alt={data.title}
         className="
+            min-h-[350px]
             object-contain
             rounded-lg
             w-full

@@ -3,6 +3,8 @@ import useHttpClient from "../hooks/useHttpClient";
 import { HTTP_METHOD, URL } from "../utilities/constants";
 import MovieList from "../components/MovieList";
 import { IMovies } from "../types";
+import Loader from "../components/Loader";
+import TvShowList from "../components/TvShowList";
 
 type Props = {};
 
@@ -10,7 +12,7 @@ const Home = (props: Props) => {
   const {
     data: movies,
     error,
-    isLoading,
+    isLoading: isMoviesLoading,
   }: { data: IMovies; error: any; isLoading: boolean } = useHttpClient(
     URL.getTrendingMovies,
     HTTP_METHOD.GET
@@ -18,7 +20,16 @@ const Home = (props: Props) => {
 
   return (
     <div>
-      <MovieList title="Trending Movies" data={movies && movies.results} />
+      <MovieList
+        title={window.lString?.str_trending_movies}
+        data={movies && movies.results}
+        isLoading={isMoviesLoading}
+      />
+      <TvShowList
+        title={window.lString?.str_trending_tvshows}
+        data={movies && movies.results}
+        isLoading={isMoviesLoading}
+      />
     </div>
   );
 };

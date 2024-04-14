@@ -1,9 +1,12 @@
-import React from "react";
+import React, { lazy } from "react";
 import PathConstants from "./pathConstants";
 import Home from "../pages/Home";
-import Details from "../pages/Details";
-import Person from "../pages/Person";
-import Cast from "../pages/Cast";
+// import Details from "../pages/Details";
+// import Person from "../pages/Person";
+// import Cast from "../pages/Cast";
+const Details = lazy(() => import("../pages/Details"));
+const Person = lazy(() => import("../pages/Person"));
+const Cast = lazy(() => import("../pages/Cast"));
 
 // const Home = React.lazy(() => import("../pages/Home.tsx"));
 // const About = React.lazy(() => import("../pages/About"));
