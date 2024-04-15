@@ -11,6 +11,7 @@ export const URL = {
   getTrendingMovies:
     "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
   getMovieDetailsById: "https://api.themoviedb.org/3/movie/",
+  getTvDetailsById: "https://api.themoviedb.org/3/tv/",
   getTrendingTvShows:
     "https://api.themoviedb.org/3/trending/tv/day?language=en-US",
 };

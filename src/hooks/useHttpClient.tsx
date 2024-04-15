@@ -1,9 +1,15 @@
 import React, { FC, useEffect, useState } from "react";
 
+interface Error {
+  success: boolean;
+  status_code?: number;
+  status_message?: string;
+}
+
 const useHttpClient = (url: string, method = "get") => {
   const [data, setData] = useState<any>();
   // <T|null>
-  const [error, setError] = useState<any>(false);
+  const [error, setError] = useState<Error | undefined>();
   const [isLoading, setIsLoading] = useState(false);
   const options = {
     method: method,
@@ -19,11 +25,17 @@ const useHttpClient = (url: string, method = "get") => {
       const response = await fetch(url, options);
       const data = await response.json();
       setIsLoading(false);
-      setData(data);
-      console.log(data);
+      if (response.ok) {
+        setData(data);
+        console.log(data);
+      } else {
+        setError(data);
+        console.error("errrr", data);
+      }
+      setIsLoading(false);
     } catch (err) {
       setIsLoading(false);
-      setError(err);
+      setError({ success: false, status_message: JSON.stringify(err) });
       console.error(err);
     }
   };

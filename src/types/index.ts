@@ -69,6 +69,48 @@ export interface IMovieDetails {
   vote_count: number;
 }
 
+interface INetwork {
+  id: number;
+  logo_path: string;
+  name: string;
+  origin_country: string;
+}
+
+export interface ISeasons {
+  id: number;
+  air_date: string;
+  episode_count: number;
+  name: string;
+  overview: string;
+  poster_path: string;
+  season_number: number;
+  vote_average: number;
+}
+
+export interface ITvDetails {
+  id: number;
+  backdrop_path: string;
+  genres: IGenres[];
+  episode_run_time: number[];
+  first_air_date: string;
+  overview: string;
+  in_production: boolean;
+  name: string;
+  number_of_episodes: number;
+  number_of_seasons: number;
+  poster_path: string;
+  status: string;
+  title: string;
+  type: string;
+  tagline: string;
+  seasons: ISeasons[];
+  networks: INetwork[];
+  production_countries: IProductionCountries[];
+  production_companies: IProductionCompanies[];
+  vote_average: number;
+  vote_count: number;
+}
+
 export interface ICast {
   id: number;
   character: string;

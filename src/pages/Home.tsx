@@ -8,7 +8,7 @@ import TvShowList from "../components/TvShowList";
 
 type Props = {};
 
-const Home = (props: Props) => {
+const Home: React.FC<Props> = (props: Props) => {
   const {
     data: movies,
     error: moviesError,

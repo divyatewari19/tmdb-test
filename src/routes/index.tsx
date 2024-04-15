@@ -4,7 +4,7 @@ import Home from "../pages/Home";
 // import Details from "../pages/Details";
 // import Person from "../pages/Person";
 // import Cast from "../pages/Cast";
-const Details = lazy(() => import("../pages/Details"));
+const Details = lazy(() => import("../pages/Details/Details"));
 const Person = lazy(() => import("../pages/Person"));
 const Cast = lazy(() => import("../pages/Cast"));
 

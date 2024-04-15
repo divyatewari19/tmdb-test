@@ -4,8 +4,8 @@ export function getImageURL(path: string, size: string) {
   return URL.imageThumbnailRoot + size + path;
 }
 
-export function getMovieCreditsURL(movieid: string) {
-  return URL.getMovieDetailsById + movieid + "/credits";
+export function getCreditsURL(mediatype: string, movieid: string) {
+  return URL.root + "/" + mediatype + "/" + movieid + "/credits";
 }
 
 /**
