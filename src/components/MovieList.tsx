@@ -19,7 +19,9 @@ const MovieList: React.FC<Props> = ({ data, title, isLoading }) => {
         <div className="flex overflow-x-auto space-x-4 px-0">
           {isLoading && <CardSkeleton cards={8} />}
           {data &&
-            data.map((movie) => <ShowCard key={movie.id} data={movie} />)}
+            data.map((movie) => (
+              <ShowCard type={movie.media_type} key={movie.id} data={movie} />
+            ))}
         </div>
       </div>
     </div>

@@ -15,7 +15,6 @@ const useHttpClient = (url: string, method = "get") => {
 
   const fetchData = async () => {
     setIsLoading(true);
-
     try {
       const response = await fetch(url, options);
       const data = await response.json();

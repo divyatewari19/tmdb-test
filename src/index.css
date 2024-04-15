@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 main {
-    min-height: calc(100vh - 170px);
+  min-height: calc(100vh - 170px);
 }
 
 body {
-    @apply bg-secondaryColor  h-full overflow-x-hidden  text-xl;
-  }
-  
+  @apply bg-secondaryColor  h-full overflow-x-hidden;
+}
+
 :root {
-    --header-margin-left: 100px;
-    --primary-color: rgb(15 23 42);
-    --secondary-color: rgb(8 47 73);
+  --header-margin-left: 80px;
+  --primary-color: rgb(15 23 42);
+  --secondary-color: rgb(8 47 73);
 }

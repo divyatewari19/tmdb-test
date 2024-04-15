@@ -63,7 +63,7 @@ const Details = (props: Props) => {
                 ></img>
               </div>
               <div className="text-white w-[70%]">
-                <div className="flex gap-x-3 text-1xl md:text-3xl  lg:text-4xl">
+                <div className="flex gap-x-3 text-2xl ">
                   <span className=" p-0  font-bold drop-shadow-xl">
                     {data?.title}
                   </span>
@@ -71,12 +71,9 @@ const Details = (props: Props) => {
                     ({getYearFromDate(data?.release_date)})
                   </span>
                 </div>
-                <div className="text-zinc-400 text-xl italic">
-                  {" "}
-                  {data?.tagline}
-                </div>
+                <div className="text-zinc-400  italic"> {data?.tagline}</div>
                 <div className="mt-4">
-                  <div className="font-bold text-2xl mb-2">Overview</div>
+                  <div className="font-bold text-xl mb-2">Overview</div>
                   <div>{data.overview}</div>
                 </div>
                 <div className="grid mt-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">

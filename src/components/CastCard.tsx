@@ -22,7 +22,7 @@ const CastCard = ({ data }: Props) => {
 
   return (
     <div
-      className="p-4 bg-zinc-200 hover:bg-slate-300 min-w-[210px] cursor-pointer rounded-lg"
+      className="p-4 bg-zinc-200 hover:bg-slate-300 min-w-[160px] cursor-pointer rounded-lg"
       tabIndex={0}
       onKeyDown={handleKeyDown}
       onClick={navigateToPersonsPage}
@@ -33,10 +33,10 @@ const CastCard = ({ data }: Props) => {
           alt={data.name}
           className="
               object-contain
-              rounded-lg
               w-full
-              min-h-[300px]
+               min-h-[100px]
               cursor-pointer
+              rounded-lg
           "
         />
       ) : (

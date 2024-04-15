@@ -11,10 +11,12 @@ export const URL = {
   getTrendingMovies:
     "https://api.themoviedb.org/3/trending/movie/day?language=en-US",
   getMovieDetailsById: "https://api.themoviedb.org/3/movie/",
+  getTrendingTvShows:
+    "https://api.themoviedb.org/3/trending/tv/day?language=en-US",
 };
 
 export enum ItemType {
-  "TVShow" = "tvShow",
+  "Tv" = "tv",
   "Movie" = "movie",
   "Cast" = "cast",
 }

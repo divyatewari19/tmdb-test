@@ -8,14 +8,30 @@ export interface IMovie {
   vote_average: number;
   release_date: string;
   media_type: string;
-  // videoUrl: string;
-  // duration: string;
-  // genre: string;
+}
+
+export interface ITvShow{
+  id: string;
+  // title: string;
+  name: string
+  overview: string;
+  poster_path: string; //thumbnailUrl
+  backdrop_path: string;
+  vote_average: number;
+  first_air_date: string;
+  media_type: string;
 }
 
 export interface IMovies {
   page: number;
   results: IMovie[];
+  total_pages: number;
+  totalResult: number;
+}
+
+export interface ITvShows {
+  page: number;
+  results: ITvShow[];
   total_pages: number;
   totalResult: number;
 }

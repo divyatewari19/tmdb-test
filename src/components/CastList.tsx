@@ -17,7 +17,7 @@ const CastList: React.FC<Props> = ({ data, isLoading }) => {
   return (
     <div className="space-y-8 mx-[--header-margin-left] pt-10 pb-20 ">
       <div>
-        <p className="text-white text-left text-md md:text-xl lg:text-2xl font-semibold mb-4 flex items-center ">
+        <p className="text-white text-left text-lg  lg:text-xl font-semibold mb-4 flex items-center ">
           Top Cast
         </p>
         <div className="flex overflow-x-auto space-x-4 px-0">
