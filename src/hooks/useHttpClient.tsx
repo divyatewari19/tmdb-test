@@ -2,6 +2,11 @@ import React, { FC, useEffect, useState } from "react";
 import { TMDBError } from "../types";
 
 const useHttpClient = (url: string, method = "get") => {
+  console.log(
+    "REACT_APP_TMDB_ACCESS_KEY",
+    process.env.REACT_APP_TMDB_ACCESS_KEY
+  );
+  console.log("TMDB_API_KEY", process.env.TMDB_API_KEY);
   const [data, setData] = useState<any>();
   // <T|null>
   const [error, setError] = useState<TMDBError | undefined>();
