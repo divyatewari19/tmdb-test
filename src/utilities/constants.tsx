@@ -7,6 +7,7 @@ export enum HTTP_METHOD {
 
 export const URL = {
   root: "https://api.themoviedb.org/3",
+  getConfig: "https://api.themoviedb.org/3/configuration",
   imageThumbnailRoot: "https://image.tmdb.org/t/p/",
   getTrendingMovies:
     "https://api.themoviedb.org/3/trending/movie/day?language=en-US",

@@ -18,8 +18,8 @@ const CardSkeleton = ({ cards, type }: Props) => {
           type === ItemType.Cast ? "bg-white" : "bg-primaryColor"
         } border-2 border-primaryColor rounded-lg`}
       >
-        <div className="min-w-[260px] pb-3 ">
-          <Skeleton height={340} />
+        <div className="min-w-[200px] pb-3 ">
+          <Skeleton height={250} />
         </div>
         <div>
           <Skeleton count={2} />

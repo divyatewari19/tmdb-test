@@ -1,15 +1,10 @@
 import React, { FC, useEffect, useState } from "react";
-
-interface Error {
-  success: boolean;
-  status_code?: number;
-  status_message?: string;
-}
+import { TMDBError } from "../types";
 
 const useHttpClient = (url: string, method = "get") => {
   const [data, setData] = useState<any>();
   // <T|null>
-  const [error, setError] = useState<Error | undefined>();
+  const [error, setError] = useState<TMDBError | undefined>();
   const [isLoading, setIsLoading] = useState(false);
   const options = {
     method: method,

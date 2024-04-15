@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import useHttpClient from "../hooks/useHttpClient";
 import { HTTP_METHOD, URL } from "../utilities/constants";
 import MovieList from "../components/MovieList";
-import { IMovies, ITvShows } from "../types";
+import { IMovies, ITvShows, TMDBError } from "../types";
 import Fallback from "../components/skeletons/Fallback";
 import TvShowList from "../components/TvShowList";
 
@@ -13,19 +13,21 @@ const Home: React.FC<Props> = (props: Props) => {
     data: movies,
     error: moviesError,
     isLoading: isMoviesLoading,
-  }: { data: IMovies; error: any; isLoading: boolean } = useHttpClient(
-    URL.getTrendingMovies,
-    HTTP_METHOD.GET
-  );
+  }: {
+    data: IMovies;
+    error: TMDBError | undefined;
+    isLoading: boolean;
+  } = useHttpClient(URL.getTrendingMovies, HTTP_METHOD.GET);
 
   const {
     data: tvshows,
     error: tvshowsError,
     isLoading: isTvShowsLoading,
-  }: { data: ITvShows; error: any; isLoading: boolean } = useHttpClient(
-    URL.getTrendingTvShows,
-    HTTP_METHOD.GET
-  );
+  }: {
+    data: ITvShows;
+    error: TMDBError | undefined;
+    isLoading: boolean;
+  } = useHttpClient(URL.getTrendingTvShows, HTTP_METHOD.GET);
 
   return (
     <div>
