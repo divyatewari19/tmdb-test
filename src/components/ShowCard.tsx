@@ -4,6 +4,7 @@ import useHttpClient from "../hooks/useHttpClient";
 import { HTTP_METHOD, ItemType, KeyCodes, URL } from "../utilities/constants";
 import { useNavigate } from "react-router-dom";
 import { getImageURL, getYearFromDate } from "../utilities/common";
+import ImageComponent from "./ImageComponent";
 
 type Props = {
   data: IMovie | ITvShow;
@@ -39,15 +40,14 @@ const ShowCard = ({ data, type }: Props) => {
       tabIndex={0}
       onKeyDown={handleKeyDown}
     >
-      <img
-        src={getImageURL(data.poster_path, "w440_and_h660_face")}
-        alt={title}
-        className="
-            min-h-[150px]
+      <ImageComponent
+        title={title}
+        size="w440_and_h660_face"
+        path={data.poster_path}
+        classes=" min-h-[150px]
             object-contain
             rounded-lg
-            w-full
-        "
+            w-full"
       />
       <div className="text-white mt-4 flex gap-x-2 ">
         <span className="font-bold text-left line-clamp-2">{title}</span>

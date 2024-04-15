@@ -1,34 +1,35 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
 import { IImageConfig } from "../types";
 
-type Data = {
+type Config = {
   images: IImageConfig;
   isLoading: boolean;
 };
 
 // Define type for the context
-type DataContextType = {
-  data: Data | null;
-  setData: (data: Data) => void;
+type ConfigContextType = {
+  config: Config | null;
+  setConfig: (data: Config) => void;
 };
 
 // Create a context with initial values
-const DataContext = createContext<DataContextType>({
-  data: null,
-  setData: () => {},
+const DataContext = createContext<ConfigContextType>({
+  config: null,
+  setConfig: () => {},
 });
 
 export const DataProvider: React.FC<{ children: ReactNode }> = ({
   children,
 }) => {
-  const [data, setData] = useState<Data | null>(null);
+  const [config, setConfig] = useState<Config | null>(null);
 
   return (
-    <DataContext.Provider value={{ data, setData }}>
+    <DataContext.Provider value={{ config, setConfig }}>
       {children}
     </DataContext.Provider>
   );
 };
 
 // Custom hook to consume the context
-export const useData = (): DataContextType => useContext(DataContext);
+export const useConfigContext = (): ConfigContextType =>
+  useContext(DataContext);

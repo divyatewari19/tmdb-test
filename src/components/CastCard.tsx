@@ -3,6 +3,7 @@ import { ICast } from "../types";
 import { useNavigate } from "react-router-dom";
 import { getImageURL } from "../utilities/common";
 import { KeyCodes } from "../utilities/constants";
+import ImageComponent from "./ImageComponent";
 
 type Props = {
   data: ICast;
@@ -28,16 +29,15 @@ const CastCard = ({ data }: Props) => {
       onClick={navigateToPersonsPage}
     >
       {data.profile_path ? (
-        <img
-          src={getImageURL(data.profile_path, "w276_and_h350_face")}
-          alt={data.name}
-          className="
-              object-contain
-              w-full
-               min-h-[100px]
-              cursor-pointer
-              rounded-lg
-          "
+        <ImageComponent
+          title={data.name}
+          size="w276_and_h350_face"
+          path={data.profile_path}
+          classes=" object-contain
+          w-full
+        h-[160px]
+        cursor-pointer
+        rounded-lg"
         />
       ) : (
         <div className="w-[210px] h-[225px]"></div>

@@ -5,11 +5,10 @@ import Layout from "./components/Layout";
 import routes from "./routes";
 import { HTTP_METHOD, URL } from "./utilities/constants";
 import useHttpClient from "./hooks/useHttpClient";
-import { useData } from "./utilities/DataContext";
+import { useConfigContext } from "./hooks/useConfigContext";
 import Fallback from "./components/skeletons/Fallback";
 
 export default function App() {
-  const [config, setConfig] = useState(null);
   const {
     data,
     error,
@@ -19,8 +18,8 @@ export default function App() {
     HTTP_METHOD.GET
   );
 
-  const { setData } = useData();
-  useEffect(() => setData({ ...data, isLoading }), [data, isLoading]);
+  const { setConfig } = useConfigContext();
+  useEffect(() => setConfig({ ...data, isLoading }), [data, isLoading]);
 
   const router = createBrowserRouter([
     {
@@ -31,5 +30,7 @@ export default function App() {
     },
   ]);
 
-  return isLoading ? <Fallback /> : <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
+
+  // return isLoading ? <Fallback /> : <RouterProvider router={router} />;
 }

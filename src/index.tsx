@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { getCurrentLocaleStrings } from "./utilities/strings";
-import { DataProvider } from "./utilities/DataContext";
+import { DataProvider } from "./hooks/useConfigContext";
 
 getCurrentLocaleStrings(null);
 
