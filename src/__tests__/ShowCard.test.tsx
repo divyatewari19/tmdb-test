@@ -3,8 +3,18 @@ import { render, fireEvent } from "@testing-library/react";
 import { BrowserRouter as Router } from "react-router-dom";
 import ShowCard from "../components/ShowCard";
 import "@testing-library/jest-dom";
+import { KeyCodes } from "../utilities/constants";
+
+const mockedNavigate = jest.fn();
+jest.mock("react-router-dom", () => ({
+  ...jest.requireActual("react-router-dom"),
+  useNavigate: () => mockedNavigate,
+}));
 
 describe("ShowCard", () => {
+  beforeEach(() => {
+    (mockedNavigate as jest.Mock).mockClear();
+  });
   const mockMovieData = {
     id: "1",
     title: "Movie Title",
@@ -47,5 +57,26 @@ describe("ShowCard", () => {
     expect(getByText("TV Show Title")).toBeInTheDocument();
     expect(getByText("8.0")).toBeInTheDocument();
     expect(getByText("2021")).toBeInTheDocument();
+  });
+
+  it("navigates to details page on click", () => {
+    const navigateMock = jest.fn();
+    const { getByText } = render(
+      <Router>
+        <ShowCard data={mockMovieData} type="movie" />
+      </Router>
+    );
+    fireEvent.click(getByText("Movie Title"));
+    expect(mockedNavigate).toHaveBeenCalledWith(`/details/movie/1`);
+  });
+
+  it("navigates to details page on enter key press", () => {
+    const { getByText } = render(
+      <Router>
+        <ShowCard data={mockTvShowData} type="tv" />
+      </Router>
+    );
+    fireEvent.keyDown(getByText("TV Show Title"), { code: KeyCodes.enter });
+    expect(mockedNavigate).toHaveBeenCalledWith(`/details/tv/2`);
   });
 });
