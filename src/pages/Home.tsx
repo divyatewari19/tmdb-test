@@ -84,7 +84,7 @@ const Home: React.FC<Props> = (props: Props) => {
 
   return (
     <div onKeyDown={handleKeyDown}>
-      <div tabIndex={-1}>
+      <div className="focus:outline-none" tabIndex={-1}>
         <MovieList
           title={window.lString?.str_trending_movies}
           data={movies && movies.results}

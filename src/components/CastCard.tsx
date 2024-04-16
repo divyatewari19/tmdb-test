@@ -44,7 +44,7 @@ const CastCard = ({ data }: Props) => {
       )}
       <div className="text-black mt-4">
         <div className="font-bold text-left truncate">{data.name}</div>
-        <div className="">{data.character}</div>
+        <div className="truncate">{data.character}</div>
       </div>
     </div>
   );
