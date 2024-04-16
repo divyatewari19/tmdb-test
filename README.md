@@ -2,6 +2,10 @@
 
 This project is a React application that integrates with the TMDB API to display today's trending films and TV shows. The app is written in TypeScript for type safety and enhanced development experience.
 
+### Demo Application
+
+Live application can be viewed on https://tmdb-test-flax.vercel.app/
+
 ### Features
 
 - **Home Page**: Displays trending films and TV shows in two separate rails.
