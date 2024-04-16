@@ -25,4 +25,9 @@ export enum ItemType {
 
 export enum KeyCodes {
   "enter" = "Enter",
+  "ArrowLeft" = "ArrowLeft",
+  "ArrowRight" = "ArrowRight",
+  "ArrowDown" = "ArrowDown",
+  "ArrowUp" = "ArrowUp",
+  "Tab" = "Tab",
 }

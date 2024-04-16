@@ -20,11 +20,11 @@ export function getYearFromDate(date: string) {
 
 export function getDurationFromMinutes(mintues: number) {
   let hours = Math.floor(mintues / 60);
-  let minutes = mintues % 60;
+  let min = mintues % 60;
 
   return {
     hours,
-    mintues,
+    minutes: min,
   };
 }
 

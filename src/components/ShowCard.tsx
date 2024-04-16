@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { IMovie, ITvShow } from "../types";
-import useHttpClient from "../hooks/useHttpClient";
-import { HTTP_METHOD, ItemType, KeyCodes, URL } from "../utilities/constants";
+import { ItemType, KeyCodes } from "../utilities/constants";
 import { useNavigate } from "react-router-dom";
-import { getImageURL, getYearFromDate } from "../utilities/common";
+import { getYearFromDate } from "../utilities/common";
 import ImageComponent from "./ImageComponent";
 
 type Props = {
@@ -35,7 +34,7 @@ const ShowCard = ({ data, type }: Props) => {
 
   return (
     <div
-      className="p-4 bg-primaryColor min-w-[200px] hover:bg-sky-800 focus:ring-3 focus:ring-blue-400 cursor-pointer rounded-lg"
+      className="p-4 bg-primaryColor min-w-[200px] hover:bg-sky-800 w-[200px] cursor-pointer rounded-lg"
       onClick={navigateToDetailsPage}
       tabIndex={0}
       onKeyDown={handleKeyDown}
@@ -44,13 +43,14 @@ const ShowCard = ({ data, type }: Props) => {
         title={title}
         size="w440_and_h660_face"
         path={data.poster_path}
-        classes=" min-h-[150px]
+        classes=" min-h-[210px]
             object-contain
             rounded-lg
             w-full"
       />
       <div className="text-white mt-4 flex gap-x-2 ">
-        <span className="font-bold text-left line-clamp-2">{title}</span>
+        {/* line-clamp-2 */}
+        <span className="font-bold text-left truncate">{title}</span>
         <span> | </span>
         <span className="">{data.vote_average.toFixed(1)}</span>
       </div>
@@ -60,5 +60,4 @@ const ShowCard = ({ data, type }: Props) => {
     </div>
   );
 };
-
 export default ShowCard;

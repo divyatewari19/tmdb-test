@@ -23,7 +23,7 @@ const CastCard = ({ data }: Props) => {
 
   return (
     <div
-      className="p-4 bg-zinc-200 hover:bg-slate-300 min-w-[160px] cursor-pointer rounded-lg"
+      className="p-4 bg-zinc-200 hover:bg-slate-300 w-[180px] cursor-pointer rounded-lg"
       tabIndex={0}
       onKeyDown={handleKeyDown}
       onClick={navigateToPersonsPage}
@@ -35,15 +35,15 @@ const CastCard = ({ data }: Props) => {
           path={data.profile_path}
           classes=" object-contain
           w-full
-        h-[160px]
+        h-[190px]
         cursor-pointer
         rounded-lg"
         />
       ) : (
-        <div className="w-[210px] h-[225px]"></div>
+        <div className="w-[210px] h-[190px]"></div>
       )}
       <div className="text-black mt-4">
-        <div className="font-bold text-left">{data.name}</div>
+        <div className="font-bold text-left truncate">{data.name}</div>
         <div className="">{data.character}</div>
       </div>
     </div>

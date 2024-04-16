@@ -7,18 +7,20 @@ type Props = {
   path: string;
   classes: string;
   title: string;
+  height?: number;
 };
 
-const ImageComponent = ({ size, path, title, classes }: Props) => {
+const ImageComponent = ({ size, path, title, classes, height }: Props) => {
   const { config } = useConfigContext();
-  console.log("images.secure_base_url: ", config?.images?.secure_base_url);
   const imageURL = config?.images?.secure_base_url
     ? config?.images?.secure_base_url + size + path
     : "";
   return imageURL ? (
     <img src={imageURL} alt={title} className={classes} />
   ) : (
-    <Skeleton className={classes} />
+    <div data-testid="skeleton" className={classes}>
+      <Skeleton className={classes} />
+    </div>
   );
 };
 
